@@ -169,7 +169,7 @@ set_log
 check_custom_squeezelite
 license
 set_sl_affinity
-stop_idlenet
+#stop_idlenet
 stop_procs
 log_stat
 clear_cache
