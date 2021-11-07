@@ -1,6 +1,10 @@
 # sKit-for-USB-reader
 soundcheck's sKit for USB reader
 
+Install method:
+
+wget -O- https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master/download 2>/dev/null | sudo sh
+
 # soundcheck's tuning kit  (sKit)  1.5   Aug-07-2021
 
 Copyright (c) 2021 - Klaus Schulz
