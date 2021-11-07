@@ -1,9 +1,14 @@
 # sKit-for-USB-reader
 soundcheck's sKit for USB reader
 
-Install method:
+Login to piCorePlayer using ssh
 
-wget -O- https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master/download 2>/dev/null | sudo sh
+* login: `tc`
+* password: `piCore`
+
+To install, run:
+
+`wget -O- https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master/download 2>/dev/null | sudo sh`
 
 # soundcheck's tuning kit  (sKit)  1.5   Aug-07-2021
 
