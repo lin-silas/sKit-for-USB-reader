@@ -94,7 +94,7 @@ env_set() {
     BINDIR=/usr/local/bin
     BIN=sKit-manager.sh 
     PERM_BIN="755"
-    REPO_sKit="https://raw.githubusercontent.com/klslz/sKit/master"
+    REPO_sKit="https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master"
     TIMEOUT=120
 }
 

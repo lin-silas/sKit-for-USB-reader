@@ -147,7 +147,7 @@ env_set() {
     CONFIG=$BOOT_MNT/config.txt
     CMDLINE=$BOOT_MNT/cmdline.txt
     pcpcfg=/usr/local/etc/pcp/pcp.cfg
-    REPO_sKit="https://raw.githubusercontent.com/klslz/sKit/master"
+    REPO_sKit="https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master"
 }
 
 
