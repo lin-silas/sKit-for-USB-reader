@@ -10,6 +10,29 @@ To install, run:
 
 `wget -O- https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master/download 2>/dev/null | sudo sh`
 
+`sKit-manager.sh`
+
+Confirm terms? (y/n)  : y
+
+_______________________________________________________________
+
+	      sKit (1.5) - manager (1.6)
+	            (c) soundcheck
+
+	         welcome tc@pCP
+_______________________________________________________________
+
+
+	  1  = install sKit
+	  2  = update  sKit package
+
+	  3  = remove  sKit
+	  *  = cancel
+
+	  ? : 1
+
+
+
 # soundcheck's tuning kit  (sKit)  1.5   Aug-07-2021
 
 Copyright (c) 2021 - Klaus Schulz
