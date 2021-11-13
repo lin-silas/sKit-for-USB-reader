@@ -1,5 +1,117 @@
 #!/bin/sh
 #
+# soundcheck's tuning kit - pCP - sKit-custom-squeezlite.sh
+# custom squeezelite binary build tool for piCorePlayer
+# supporting RPi3 and RPi4 and related CM modules
+#
+# Latest Update: Aug-07-2021
+#
+# Copyright © 2021 - Klaus Schulz
+# All rights reserved
+# 
+# This program is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License 
+# as published by the Free Software Foundation, 
+# either version 3 of the License, or (at your option) 
+# any later version.
+#
+# This program is distributed in the hope that it will be useful, 
+# but WITHOUT ANY WARRANTY; without even the implied warranty 
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+# See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License 
+# along with this program. 
+#
+# If not, see http://www.gnu.org/licenses
+#
+########################################################################
+VERSION=1.3
+sKit_VERSION=1.5
+
+fname="${0##*/}"
+opts="$@"
+license_accept_flag=/mnt/sda2/tce/.sKit-license-accepted.flag
+
+###functions############################################################
+
+colors() {
+
+    RED='\033[0;31m'
+    GREEN="\033[0;32m"
+    YELLOW="\033[0;33m" 
+    NC='\033[0m'
+}
+
+
+out() {
+
+    echo -e "\tprogram aborted"
+    echo -e "\t${RED}ERROR: $@ ${NC}"
+    DONE
+    exit 1
+}
+
+
+line() {
+
+    echo -e "${RED}_______________________________________________________________${NC}\n"
+}
+
+
+checkroot() {
+
+    (( EUID != 0 )) && out "root privileges required"
+}
+
+
+header() {
+
+    line
+    echo -e "\t   sKit - custom squeezelite builder ($VERSION)"
+    echo -e "\t            (c) soundcheck"
+    echo
+    echo -e "\t           welcome $(id -un)@$(hostname)"
+    line
+}
+
+
+DONE() {
+
+    line
+    sync
+}
+
+
+countdown() {
+
+    counter=$1
+    while [[ "$counter" -gt 0 ]]; do
+
+
+        echo -ne -e "\t>> $counter \r"
+        let counter--
+        sleep 1
+
+    done
+    echo -e "\t>> 0"
+    line
+}
+
+
+reboot_system() {
+
+   if [[ "$REBOOT" == "true" ]]; then
+
+      echo -e "\trebooting system in"
+      countdown 10
+      sudo reboot
+      exit 1
+
+   fi
+}
+
+
+############################################
 
 env_set() {
 
@@ -164,6 +276,7 @@ INSTALL() {
 }
 
 ###main#######################################
+colors
 INSTALL
 
 DONE
