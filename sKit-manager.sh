@@ -195,7 +195,7 @@ env_set() {
     REPO_sKit="https://raw.githubusercontent.com/lin-silas/sKit-for-USB-reader/master"
     TIMEOUT=120
 
-    sKit="sKit-manager.sh sKit-custom-squeezelite.sh sKit-led-manager.sh sKit-tweaks sKit-src-manager.sh sKit-restore.sh sKit-check.sh"
+    sKit="sKit-manager.sh sKit-custom-squeezelite.sh sKit-led-manager.sh sKit-tweaks sKit-src-manager.sh sKit-restore.sh sKit-check.sh sKit-sam0402-squeezelite.sh"
 
     EXTENSIONS="procps-ng rpi-vc"
 
