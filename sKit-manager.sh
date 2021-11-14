@@ -297,7 +297,7 @@ EOF
 enable_sKit_tweaks_mod() {
 
     echo -e "\tenable sKit-tweaks mod"
-    sed -i 's|^USER_COMMAND_1=.*|USER_COMMAND_1="sleep 20;sKit-tweaks"|g' $pcpcfg
+    sed -i 's|^USER_COMMAND_1=.*|USER_COMMAND_1="#sleep 20;sKit-tweaks"|g' $pcpcfg
     sudo ln -s /mnt/sda2/tce/sKit/bin/sKit-tweaks /usr/local/bin
     sudo echo "usr/local/bin/sKit-tweaks" >> $ftlst
 }
