@@ -633,7 +633,7 @@ menu() {
             mount_boot
             remove_sKit_tweaks_mod
             remove_led_mod
-            remove_custom_squeezelite
+            #remove_custom_squeezelite
             remove_custom_squeezelite_settings
             remove_isolcpus_mod
             remove_affinity_mod
