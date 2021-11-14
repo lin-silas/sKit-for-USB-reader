@@ -205,7 +205,7 @@ download_squeezelite() {
 
     cd /tmp
     wget https://raw.githubusercontent.com/lin-silas/pcp-squeezelite/main/squeezelite-1.9.8-1317.tar.bz2
-    tar jxvf squeezelite-1.9.8-1317.tar.bz2
+    sudo tar jxvf squeezelite-1.9.8-1317.tar.bz2 >$LOG 2>&1
 }
 
 install_squeezelite() {
@@ -213,8 +213,8 @@ install_squeezelite() {
     cd /tmp/squeezelite
 
     echo -e "\tbuilding"
-    make clean
-    make --makefile=Makefile.rpi4-64-basic || out "compiling binary"
+    make clean >$LOG 2>&1
+    make --makefile=Makefile.rpi4-64-basic >$LOG 2>&1 || out "compiling binary"
     echo -e "\tinstalling"
     sudo mv -f squeezelite $TCE/squeezelite-custom  || out "installing binary"
 }
