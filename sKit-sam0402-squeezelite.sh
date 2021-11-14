@@ -58,23 +58,6 @@ line() {
 }
 
 
-checkroot() {
-
-    (( EUID != 0 )) && out "root privileges required"
-}
-
-
-header() {
-
-    line
-    echo -e "\t   sKit - custom squeezelite builder ($VERSION)"
-    echo -e "\t            (c) soundcheck"
-    echo
-    echo -e "\t           welcome $(id -un)@$(hostname)"
-    line
-}
-
-
 DONE() {
 
     line
@@ -124,7 +107,7 @@ env_set() {
     pcpcfg=/usr/local/etc/pcp/pcp.cfg
     BOOT_MNT=/mnt/sda1
     BOOT_DEV=/dev/sda1
-    REPO_PCP1="https://repo.picoreplayer.org/repo"
+    REPO_PCP="https://repo.picoreplayer.org/repo"
     REPO_PCP2="http://picoreplayer.sourceforge.net/tcz_repo"
     REPO_SL="https://github.com/klslz/squeezelite.git"
     EXT_BA="sKit-extensions-backup.tar.gz"
@@ -142,6 +125,13 @@ pcp-libfaad2-dev
 pcp-libsoxr-dev" 
     BASE=/tmp/squeezelite
     ISOLCPUS="3"
+    TIMEOUT=300
+}
+
+set_log() {
+
+    echo -e "\tsetting up log"
+    echo >$LOG
 }
 
 download_extensions() {
@@ -151,12 +141,12 @@ download_extensions() {
     for ext in $EXTENSIONS; do
 
         timeout $TIMEOUT pcp-load -r $REPO_PCP -w "$ext" >>$LOG 2>&1
-#        if [[ $? -ne 0 ]] || grep -q -i "FAILED" $LOG; then
+        if [[ $? -ne 0 ]] || grep -q -i "FAILED" $LOG; then
 
-#            FAILED=true
-#            break
+            FAILED=true
+            break
 
-#        fi
+        fi
 
     done
 
@@ -266,7 +256,7 @@ reboot_system() {
 }
 
 INSTALL() {
-
+    set_log
     download_extensions
     load_extensions
     download_squeezelite
