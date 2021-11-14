@@ -151,12 +151,12 @@ download_extensions() {
     for ext in $EXTENSIONS; do
 
         timeout $TIMEOUT pcp-load -r $REPO_PCP -w "$ext" >>$LOG 2>&1
-        if [[ $? -ne 0 ]] || grep -q -i "FAILED" $LOG; then
+#        if [[ $? -ne 0 ]] || grep -q -i "FAILED" $LOG; then
 
-            FAILED=true
-            break
+#            FAILED=true
+#            break
 
-        fi
+#        fi
 
     done
 
@@ -204,8 +204,8 @@ download_squeezelite() {
     echo -e "\tdownloading squeezelite sources"
 
     cd /tmp
-    wget https://raw.githubusercontent.com/lin-silas/pcp-squeezelite/main/squeezelite-1.9.8-1317.tar.bz2
-    sudo tar jxvf squeezelite-1.9.8-1317.tar.bz2 >$LOG 2>&1
+    wget https://raw.githubusercontent.com/lin-silas/pcp-squeezelite/main/squeezelite-1.9.8-1317.tar.bz2 >$LOG 2>&1
+    sudo tar jxf squeezelite-1.9.8-1317.tar.bz2
 }
 
 install_squeezelite() {
@@ -213,8 +213,8 @@ install_squeezelite() {
     cd /tmp/squeezelite
 
     echo -e "\tbuilding"
-    make clean >$LOG 2>&1
-    make --makefile=Makefile.rpi4-64-basic >$LOG 2>&1 || out "compiling binary"
+    sudo make clean >$LOG 2>&1
+    sudo make --makefile=Makefile.rpi4-64-basic >$LOG 2>&1 || out "compiling binary"
     echo -e "\tinstalling"
     sudo mv -f squeezelite $TCE/squeezelite-custom  || out "installing binary"
 }
@@ -224,7 +224,7 @@ activate_squeezelite() {
     echo -e "\tactivating binary"
     if [[ ! -f $TCE/squeezelite ]]; then
 
-        ln -sf $TCE/squeezelite-custom $TCE/squeezelite
+        sudo ln -sf $TCE/squeezelite-custom $TCE/squeezelite
 
     fi
     sed -i 's/SQBINARY="default"/SQBINARY="custom"/' $pcpcfg
@@ -277,6 +277,8 @@ INSTALL() {
 
 ###main#######################################
 colors
+env_set
+
 INSTALL
 
 DONE
