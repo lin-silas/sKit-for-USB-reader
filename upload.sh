@@ -1,6 +1,10 @@
 #!/bin/sh
 
 env_set() {
+    TCE=/mnt/sda2/tce 
+    TCEO=$TCE/optional
+    ONB=$TCE/onboot.lst
+    sKitbase=$TCE/sKit
     LOGDIR=$sKitbase/log
     LOG=$LOGDIR/$fname.log
   REPO_PCP="https://repo.picoreplayer.org/repo"
