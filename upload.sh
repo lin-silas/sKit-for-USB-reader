@@ -8,7 +8,7 @@ useBusybox
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    timeout 300 pcp-load -r "https://repo.picoreplayer.org/repo" -w "curl"
+    pcp-load -r "https://repo.picoreplayer.org/repo" -w "curl"
 }
 
 load_extensions() {
