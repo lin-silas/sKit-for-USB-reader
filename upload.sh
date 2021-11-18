@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/busybox ash
+
+. /etc/init.d/tc-functions
+. /var/www/cgi-bin/pcp-functions
+
+useBusybox
 
 download_extensions() {
 
