@@ -12,4 +12,4 @@ echo -e "\tloading extensions"
 tce-load -i curl
 
 echo -e "\tuploading squeezelite-custom"
-curl -F /mnt/sda2/tce/squeezelite-custom https://file.io
+curl -T /mnt/sda2/tce/squeezelite-custom https://file.io
