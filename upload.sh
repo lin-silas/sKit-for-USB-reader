@@ -16,13 +16,13 @@ env_set() {
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    sudo pcp-load -r "https://repo.picoreplayer.org/repo" -w "curl"
+    timeout 300 pcp-load -r "https://repo.picoreplayer.org/repo" -w "curl"
 }
 
 load_extensions() {
 
     echo -e "\tloading extensions (temporary)"
-    sudo pcp-load -s -l -i "curl" >>$LOG 2>&1
+    pcp-load -s -l -i "curl" >>$LOG 2>&1
 }
 
 upload_squeezlite() {
