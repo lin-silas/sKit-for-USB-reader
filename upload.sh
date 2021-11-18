@@ -11,13 +11,13 @@ ext="curl"
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    pcp-load -r $REPO_PCP -w "$ext"
+    pcp-load -r $REPO_PCP -w $ext
 }
 
 load_extensions() {
 
     echo -e "\tloading extensions (temporary)"
-    pcp-load -s -l -i "$ext"
+    pcp-load -s -l -i $ext
 }
 
 upload_squeezlite() {
