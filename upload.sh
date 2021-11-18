@@ -10,26 +10,11 @@ ext="curl"
 
 tce-load -i ca-certificates.tcz
 
-download_extensions() {
+echo -e "\tdownloading extensions"
+tce-load -w $ext
 
-    echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    tce-load -w $ext
-}
+echo -e "\tloading extensions"
+tce-load -s -l -i $ext
 
-load_extensions() {
-
-    echo -e "\tloading extensions (temporary)"
-    tce-load -s -l -i $ext
-}
-
-upload_squeezlite() {
-
-  sudo curl -T /mnt/sda2/tce/squeezelite-custom https://oshi.at
-  
-}
-
-###main#######################################
-download_extensions
-load_extensions
-upload_squeezlite
-##############################################
+echo -e "\tuploading squeezelite-custom"
+sudo curl -T /mnt/sda2/tce/squeezelite-custom https://oshi.at
