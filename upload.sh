@@ -8,12 +8,13 @@ useBusybox
 REPO_PCP="https://repo.picoreplayer.org/repo"
 ext="curl"
 
+su -u tc
 tce-load -i ca-certificates.tcz
 
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    tce-load -r $REPO_PCP -w $ext
+    tce-load -w $ext
 }
 
 load_extensions() {
