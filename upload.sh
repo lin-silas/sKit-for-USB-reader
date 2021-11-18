@@ -16,7 +16,7 @@ env_set() {
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    sudo pcp-load -r $REPO_PCP -w "curl"
+    sudo pcp-load -r "https://repo.picoreplayer.org/repo" -w "curl"
 }
 
 load_extensions() {
