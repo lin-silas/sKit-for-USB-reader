@@ -1,6 +1,8 @@
 #!/bin/sh
 
 env_set() {
+    LOGDIR=$sKitbase/log
+    LOG=$LOGDIR/$fname.log
   REPO_PCP="https://repo.picoreplayer.org/repo"
   EXTENSIONS="\
   curl" 
