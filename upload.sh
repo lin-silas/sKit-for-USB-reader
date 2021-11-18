@@ -5,6 +5,7 @@
 
 useBusybox
 
+pcp_write_var_to_config USER_COMMAND_1 ""
 REPO_PCP="https://repo.picoreplayer.org/repo"
 ext="curl"
 
