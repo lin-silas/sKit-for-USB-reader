@@ -8,7 +8,7 @@ useBusybox
 REPO_PCP="https://repo.picoreplayer.org/repo"
 ext="curl"
 
-tce-load -i ca-certificates.tcz > /dev/null 2>&1
+tce-load -i ca-certificates.tcz
 
 echo -e "\tdownloading extensions"
 tce-load -w $ext > /dev/null 2>&1
