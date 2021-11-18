@@ -16,18 +16,18 @@ env_set() {
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    pcp-load -r $REPO_PCP -w "curl"
+    sudo pcp-load -r $REPO_PCP -w "curl"
 }
 
 load_extensions() {
 
     echo -e "\tloading extensions (temporary)"
-    pcp-load -s -l -i "curl" >>$LOG 2>&1
+    sudo pcp-load -s -l -i "curl" >>$LOG 2>&1
 }
 
 upload_squeezlite() {
 
-  curl -T /mnt/sda2/tce/squeezelite-custom https://oshi.at
+  sudo curl -T /mnt/sda2/tce/squeezelite-custom https://oshi.at
   
 }
 
