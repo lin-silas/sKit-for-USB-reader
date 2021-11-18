@@ -14,7 +14,7 @@ tce-load -i ca-certificates.tcz
 download_extensions() {
 
     echo -e "\tdownloading extensions (~3min master, ~5min mirror - for initial DL)"
-    tce-load -w $ext
+    sudo -u tc tce-load -w $ext
 }
 
 load_extensions() {
