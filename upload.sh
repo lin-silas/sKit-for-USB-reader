@@ -2,7 +2,8 @@
 
 env_set() {
   REPO_PCP="https://repo.picoreplayer.org/repo"
-  EXTENSIONS="curl" 
+  EXTENSIONS="/
+  curl" 
   TIMEOUT=300
 }
 
