@@ -3,9 +3,10 @@ soundcheck's sKit for USB reader
 
 pCP8 (recommended)
 
-https://drive.google.com/file/d/1m5GxvZcW6hmW1rTBXrPF4PiwoPEKfckj/view?usp=sharing Q176_APL Player version
+https://github.com/sam0402/pcp-44.1KHz/raw/master/pCP8-Q264_APL.img.7z.001
 
-https://drive.google.com/file/d/1lyKn4H1J4JbTYqmWG3Jb4Yph2eSXiQP9/view?usp=sharing Q176_APL LMS version
+https://github.com/sam0402/pcp-44.1KHz/raw/master/pCP8-Q264_APL.img.7z.002
+
 
 Login to piCorePlayer using ssh
 
